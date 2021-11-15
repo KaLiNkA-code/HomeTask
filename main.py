@@ -1,35 +1,63 @@
 """
 Калинин Егор 9 класс
-06.11.21
-Ex 1 'сумма трех чисел'
+10.11.21
 """
 
-IntInput = [int(input()) for i in range(3)]
-print(f"Сумма: {sum(IntInput)}")
+""" Углубленный
+Ex 1
+"""
+cords = []  # Координаты
+total = []  # тут поле
+middle_v = []  # тут все центры
+gg = []  # тут список всех центров центра
+light = []  # тут хранится сила фонаря
 
-"""Ex 2 'Следующее и предыдущее'"""
+h, l = input().split()  # Тут единственный PEP 8, но в контексте плучаемого ввода пофиксить его я не смогу
+LC = int(input())
 
-value = int(input("Введите число"))
-print(f"предыдущие число: {value-1}\nследующее число: {value+1}")
+for _ in range(LC):
+    val = input()
+    a1, a2, a3 = val.split()
+    cords.append([int(a1), int(a2), int(a3)])  # Хотел через extend, но все таки нужно как то отделать
+
+total_lend = int(l) * int(h)
+
+for i in range(total_lend):  # Составляем поле (хотел сделать с помощью экземпляров, но оказалось, что это не нужно)
+    total.append(False)
+
+print(cords)
+for j1 in cords:  # берем индекс координаты точки, на которой лежит фонарь
+    a = j1[1] * int(l) + j1[0] + 1
+    middle_v.append(a)
+    light.append(j1[2])
+
+for i in range(len(middle_v)):  # вот этот фрагмент кода я затрудняюсь сделать для всех случаев жизни :/
+    g = []
+    if int(l) <= middle_v[i]:
+        val1 = middle_v[i] - int(l)
+        g.append(val1)
+    val2 = middle_v[i]
+    g.append(val2)
+    if int(l) + middle_v[i] <= len(total):
+        val3 = middle_v[i] + int(l)
+        g.append(val3)
+    gg.append(g)
+
+print(gg)
+index_light_power = 0  # Нужен для того,
+light_val = 0
+c = 0  # Индекс фонаря
+for i in gg:
+    light_val = i[c]
+    for j in i:
+        while light_val != 0:
+            print(light_val)
+            light_val -= 1
+
+    c += 1
+
+c = 0
+print(middle_v)
 
 
-"""Ex 3 'Трехзначное число'"""
-
-value = input()
-f, s, t = [int(i) for i in str(value)]
-print(f"Сумма: {s+t+f}\nПроизведение: {f*s*t}")
-
-
-"""Ex 4 'Элементы ряда Фибоначи'"""
-
-count = 1
-row = [1, 2]
-result = 0
-while row[count] + row[count-1] < 4_000_000:
-    row.append(int(row[count] + row[count-1]))
-    count += 1
-    if row[count] % 2 == 0:
-        result += row[count]
-
-print(result)
-print(row)
+"""Ex 2"""
