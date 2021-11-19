@@ -1,4 +1,6 @@
 import csv
+import matplotlib.pyplot as plt
+import pandas as pd
 # string = input()
 # index = 0
 # new_string = []
@@ -73,12 +75,31 @@ import csv
 #     for i in reader:
 #
 #         if i[1] not in dicct:
-#             dicct.update({i[1]: [0, 0, 0]})
+#             dicct.update({i[1]: [0, 0, 0, [], [], []]})
 #         else:
 #             dicct[i[1]][0] += 1
+#             dicct[i[1]][3].append(dicct[i[1]][0] + 1)
 #             dicct[i[1]][1] += int(i[2])
+#             dicct[i[1]][4].append(int(i[2]))
 #             dicct[i[1]][2] += int(i[3])
+#             dicct[i[1]][5].append(int(i[3]))
 #     # Полная стоимость
 #
 #     for k, v in dicct.items():
 #         print(f"Комапания {k} сделала {v[0]} перелетов, стоимость: {v[1]}, а общий вес: {v[2]}.")
+#         fig, ax = plt.subplots()
+#         ax.plot(linewidth=3)
+#         ax.set_title(f"График {k}", fontsize=24)
+#         ax.set_ylabel('Value', fontsize=14)
+#         ax.set_xlabel('Number', fontsize=14)
+#         ax.tick_params(axis='both', labelsize=14)
+#         ax.plot(v[4], c='red')
+#         plt.plot(v[5], c='green')
+#         plt.plot(v[3], c='blue')
+#         plt.show()
+
+
+"""Номер 4"""
+
+df = pd.read_excel('students_info.xlsx')  # Здесь данные групп от деканата
+print(df)
