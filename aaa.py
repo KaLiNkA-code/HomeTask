@@ -65,17 +65,20 @@ import csv
 """Номер 3"""
 
 
-with open('transactions.csv', encoding='UTF-8') as file:
-    reader = csv.reader(file, delimiter=',')
-    next(reader)
-    name = []
-    len1 = len2 = 0
-    for i in reader:
-        name.append(i[1])
-    for i in name:
-        if i == 'Acme, Inc':
-            len1 += 1
-        else:
-            len2 += 1
-
-    print(f"Acme, Inc: {len1}Уже есть мах поездок Umbrella, Inc: {len2}")
+# with open('flights.csv', encoding='UTF-8') as file:
+#     reader = csv.reader(file, delimiter=',')
+#     next(reader)
+#     name = []
+#     dicct = {}
+#     for i in reader:
+#
+#         if i[1] not in dicct:
+#             dicct.update({i[1]: [0, 0, 0]})
+#         else:
+#             dicct[i[1]][0] += 1
+#             dicct[i[1]][1] += int(i[2])
+#             dicct[i[1]][2] += int(i[3])
+#     # Полная стоимость
+#
+#     for k, v in dicct.items():
+#         print(f"Комапания {k} сделала {v[0]} перелетов, стоимость: {v[1]}, а общий вес: {v[2]}.")
