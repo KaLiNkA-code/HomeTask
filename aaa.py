@@ -103,3 +103,8 @@ import pandas as pd
 
 df = pd.read_excel('students_info.xlsx')  # Здесь данные групп от деканата
 print(df)
+
+with open('results_ejudge.html', encoding='UTF-8') as file:
+    f = file.read()
+    find_aLL = f.find('thead')
+    print(find_aLL)
