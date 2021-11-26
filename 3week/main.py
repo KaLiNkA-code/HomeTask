@@ -159,3 +159,5 @@ with open('flights.csv', encoding='UTF-8') as file:
         plt.plot(v[5], c='green')
         plt.plot(v[3], c='blue')
         plt.show()
+
+
