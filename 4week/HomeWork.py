@@ -39,8 +39,3 @@ with open(inp2, encoding='UTF-8') as file:
     for i in reader:
         value = i[0].split(';')
         total_prices[value[0]].append(value[1])
-
-
-def ThreeMax(val):
-    l = []
-    l.append(sorted(val)[])
