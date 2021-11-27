@@ -60,8 +60,15 @@ def max_three(li, company):
 a = max_three(max_oll, companies)
 b = max_three(max_8plus, companies)
 
+print(a)
+print(b)
 
 plt.ylabel('All Marks')
 plt.xlabel('Companies')
 plt.bar(a[1], a[0], color=['red', 'blue', 'green'])
+plt.show()
+
+plt.ylabel('Marks (8.0+)')
+plt.xlabel('Companies')
+plt.bar(b[1], b[0], color=['r', 'b', 'g'])
 plt.show()
