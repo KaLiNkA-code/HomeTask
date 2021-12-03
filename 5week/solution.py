@@ -1,11 +1,10 @@
-import pandas
-path1 = input('Введите путь до 1 файла: ')
-path2 = input('Введите путь до 2 файла: ')
+import numpy as np
+import pandas as pd
 
 
-with open('links001.csv', 'r') as f:  # in the future 'path1'
-    pass
+path1 = input('Введите путь до 1 файла: ')  # файл со статьями papers001.csv
+path2 = input('Введите путь до 2 файла: ')  # файл с отзывами links001.csv
 
 
-with open('links001.csv', 'r') as ff:  # in the future 'path2'
-    pass
+data1 = pd.read_csv('papers001.csv', delimiter=';')
+print(data1)
