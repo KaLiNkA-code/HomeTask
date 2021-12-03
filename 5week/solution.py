@@ -20,5 +20,3 @@ print(g)
 
 for i in data1['title']:
     result_dict[i] = []
-
-print(result_dict)
