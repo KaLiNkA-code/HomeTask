@@ -32,7 +32,7 @@ data2 = pd.read_csv(r'C:\Users\Lenovo\PycharmProjects\HomeTask_ZFTSH\5week\part1
 DataFrame1 = pd.DataFrame()
 col, cor = np.where(data1.values == 5)
 
-print(data1['title'] == data2['reference'])
+print(data1['title'] == data2['reference'])  # f
 
 
 # for i in data1[data1['title']]:  # isin сохраняет только уникальные значения, аналога пока что не нашел
