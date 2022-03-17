@@ -1,4 +1,5 @@
 import numpy as np
+import ast
 
 
 """111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"""
@@ -30,12 +31,14 @@ def three_solution():
 
 def solution_4(aa1, aa2):
     try:
-        np.array(aa1)
-        np.array(aa2)
-    except TypeError as PP:
-        return f"Не корректное значение! (Вот ошибка: {PP})"
+        a1 = np.array(ast.literal_eval(aa1))
+        a2 = np.array(ast.literal_eval(aa2))
+    except TypeError as P1:
+        return f"Не корректное значение! (Вот ошибка: {P1})"
+    except ValueError as P2:
+        return f"Не корректное значение! (Вот ошибка: {P2})"
     else:
-        return np.outer(aa1, aa2)
+        return np.outer(a1, a2)
 
 
 """
@@ -48,18 +51,19 @@ def solution_4(aa1, aa2):
 
 
 def solution_5(m1):
-    # Я не знаю, как принять матрицу так, чтобы она была типом list/int чтобы это не награмождало код (try с циклом)
-    #  matrix = np.array([[0, 2, 4], [-1, 4, 2], [3, 4, 2]])
+
+    m1 = np.array(m1)
+    #  return type(m1)  |  <class 'numpy.ndarray'>
     if np.any(m1 == 0):
         return 'Есть'
     else:
-        return 'Нету'
+        return 'Нету'  # Всегда говорит 'Нету'
 
 
 c = 0
 if __name__ == '__main__':
     while True:
-        answer = input('Введите, какой номер вы хотите проверить или напишите "out":  ')
+        answer = input('Введите, какой номер вы хотите проверить на Numpy или напишите "out":  ')
         if answer == 'out':
             print('Спасибо за внимание!')
             break
@@ -71,15 +75,14 @@ if __name__ == '__main__':
             print(three_solution())
         elif answer == '4':
 
-            a12 = input('введите 1 массив: ')
-            a1 = np.array([[1, 4], [2, 5]])
-            a22 = input('введите 2 массив: ')
-            a2 = np.array([[1, 3], [5, 7]])
-            print(solution_4(a12, a22))
+            a1 = input('введите 1 массив: ')
+            a2 = input('введите 2 массив: ')
+            print(solution_4(a1, a2))
+
         elif answer == '5':
             try:
                 a1 = input('Введите матрицу, и я скажу, есть ли там ноль:  ')
-                a = np.array([[1, 2, 3], [3, 4, 5], [3, 2, 5]])
+                a = np.array(a1)
             except TypeError as P:
                 print(f"Не корректное значение! (Вот ошибка: {P})")
             else:
